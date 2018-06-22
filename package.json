@@ -25,5 +25,9 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
   }
 }
