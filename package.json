@@ -1,0 +1,25 @@
+{
+  "name": "jlt-blog-api",
+  "version": "1.0.0",
+  "description": "REST Api for personal/internship blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulesAaelio/jlt-blog-api.git"
+  },
+  "keywords": [
+    "api",
+    "blog",
+    "rest",
+    "nodejs"
+  ],
+  "author": "JulesAaelio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulesAaelio/jlt-blog-api/issues"
+  },
+  "homepage": "https://github.com/JulesAaelio/jlt-blog-api#readme"
+}
