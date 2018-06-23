@@ -1,9 +1,25 @@
 const passport = require('passport');
+let Request = require('request-promise-native')
 const OAuthStrategy = require('passport-oauth2');
 
 module.exports = (User) => {
     const authCallback = (accessToken, refreshToken, profile, cb) => {
-        console.log(accessToken,refreshToken,profile,cb);
+        User.findOrCreate({
+            where: {
+                externalId: profile.id
+            }, defaults : {
+                role: 'USER',
+                email: profile.email,
+                lastname: profile.lastname,
+                firstname: profile.firstname,
+
+            }
+        }).then((response) =>  {
+            console.log(response);
+               return cb(null,response[0]);
+        }).catch(error => {
+                return cb(error,{});
+        });
     };
 
     const authStrategy = new OAuthStrategy({
@@ -14,12 +30,34 @@ module.exports = (User) => {
         callbackURL: process.env.OAUTH_CALLBACK
     },authCallback);
 
-    authStrategy.userProfile((accessToken,done) => {
+    authStrategy.userProfile = (accessToken,done) => {
+        console.log(done);
+        Request.get(process.env.OAUTH_SERVER + '/user/me',{
+            headers: {
+                'Authorization': 'Bearer ' + accessToken,
+            }
+        }).then(response => {
+            console.log(response);
+            return done(null, JSON.parse(response));
+        });
 
-        return done(null, user);
-    });
+    };
 
     passport.use(authStrategy);
+
+    // Save the user's email address in the cookie
+    passport.serializeUser((user, cookieBuilder) => {
+        cookieBuilder(null, user.id);
+    });
+
+    passport.deserializeUser((id, cb) => {
+        console.log("AUTH ATTEMPT", email);
+        // Fetch the user record corresponding to the provided email address
+        User.findById(id).then(r => {
+            if (r) return cb(null, r);
+            else return cb(new Error("No user corresponding to the cookie's email address"));
+        });
+    });
 
     return passport;
 };
