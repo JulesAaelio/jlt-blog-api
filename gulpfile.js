@@ -11,7 +11,7 @@ gulp.task('serve',() => {
             "DATABASE": "juleslaurentblogapi",
             "DB_USER": "datauser",
             "DB_PASSWORD": "toto",
-            "DB_HOST": "localhost",
+            "DB_HOST": "db",
             "DB_DIALECT": "mysql",
             "SRV_PORT": 3500,
             "OAUTH_SERVER" : 'http://api.perso.local',
