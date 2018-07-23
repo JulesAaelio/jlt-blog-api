@@ -7,5 +7,9 @@ app.use('/articles',require('./endpoints/articles')(db));
 app.use('/articles',
     passport.authenticate('bearer', {session: false}),
     require('./utils/admin-guard'),require('./endpoints/articles-protected')(db));
+app.use('/user',
+    passport.authenticate('bearer', {session: false}),
+    require('./utils/auth-guard'),
+    require('./endpoints/user')());
 
 app.listen(process.env.SRV_PORT);
