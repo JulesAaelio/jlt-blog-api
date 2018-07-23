@@ -1,4 +1,8 @@
 const express = require('express');
+const uploadconf = require('../utils/articles-images-upload-conf');
+const upload = require('multer')({
+    storage: uploadconf
+});
 
 module.exports = (db) => {
     const router = express.Router();
@@ -9,6 +13,12 @@ module.exports = (db) => {
             content: req.body.content
         }).then((article) => {
             res.send(article);
+        })
+    });
+
+    router.post('/images', upload.single('file'), (req, res) => {
+        res.send({
+            location: req.file.destination + '/' + req.file.filename,
         })
     });
 
