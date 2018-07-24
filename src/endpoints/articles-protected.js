@@ -25,7 +25,26 @@ module.exports = (db) => {
     router.put('/:id', (req, res) => {
         db.Article.findById(req.params.id).then(article => {
             if (article) {
-                res.send(article);
+                article.update({
+                    title: req.body.title,
+                    content: req.body.content
+                }).then(article => {
+                    res.send(article);
+                });
+            } else {
+                res.status(404).send();
+            }
+        })
+    });
+
+    router.patch('/:id/illustration', upload.single('file'), (req, res) => {
+        db.Article.findById(req.params.id).then(article => {
+            if (article) {
+                article.update({
+                    illustration: req.file.path
+                }).then(article => {
+                    res.send(article);
+                });
             } else {
                 res.status(404).send();
             }
