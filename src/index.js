@@ -1,3 +1,5 @@
+require('dotenv').config();
+console.log(process.env.DB_DIALECT);
 const app = require('./config/express');
 const db = require('./config/sequelize');
 const passport = require('./config/passport')(db.User);
