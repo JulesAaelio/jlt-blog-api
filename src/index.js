@@ -6,7 +6,8 @@ console.log("App started at  " , new Date().toLocaleString());
 app.use('/articles',require('./endpoints/articles')(db));
 app.use('/articles',
     passport.authenticate('bearer', {session: false}),
-    require('./utils/admin-guard'),require('./endpoints/articles-protected')(db));
+    require('./utils/admin-guard'),
+    require('./endpoints/articles-protected')(db));
 app.use('/user',
     passport.authenticate('bearer', {session: false}),
     require('./utils/auth-guard'),

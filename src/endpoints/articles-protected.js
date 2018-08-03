@@ -10,7 +10,8 @@ module.exports = (db) => {
     router.post('/', (req, res) => {
         db.Article.create({
             title: req.body.title,
-            content: req.body.content
+            content: req.body.content,
+            sample: req.body.sample
         }).then((article) => {
             res.send(article);
         })
@@ -27,7 +28,8 @@ module.exports = (db) => {
             if (article) {
                 article.update({
                     title: req.body.title,
-                    content: req.body.content
+                    content: req.body.content,
+                    sample: req.body.sample
                 }).then(article => {
                     res.send(article);
                 });
