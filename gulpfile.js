@@ -14,7 +14,7 @@ gulp.task('serve',() => {
             "DB_HOST": "db",
             "DB_DIALECT": "mysql",
             "SRV_PORT": 3500,
-            "OAUTH_SERVER" : 'http://api.perso.local',
+            "OAUTH_SERVER" : 'http://172.19.0.1:8080',
         },
     })
 });
