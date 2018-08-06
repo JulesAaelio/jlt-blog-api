@@ -4,6 +4,7 @@
   "description": "REST Api for personal/internship blog",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "gulp serve"
   },
   "repository": {
