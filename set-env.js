@@ -43,7 +43,7 @@ function stringify(env, shouldExport = false) {
                 toWrite += 'export '
             }
             toWrite += prop + '=';
-            if (typeof env[prop] === 'string')
+            if (typeof env[prop] === 'string' && !shouldExport)
                 toWrite += '"' + env[prop] + '"';
             else
                 toWrite += env[prop];
