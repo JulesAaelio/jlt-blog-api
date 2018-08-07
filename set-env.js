@@ -24,7 +24,7 @@ writeFile('.env', toWrite, (err => {
 const host_env = {
     MYSQL_ROOT_PASSWORD: process.env.ROOT_PASSWORD,
     MYSQL_USER: process.env.DB_USER,
-    MYSQL_PASSWORD: process.env.DB_PASSWORD
+    MYSQL_PASSWORD: process.env.DB_PASSWORD,
     MYSQL_DATABASE: process.env.DATABASE,
 };
 toWrite = stringify(host_env, true);
