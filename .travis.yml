@@ -1,0 +1,16 @@
+language: node_js #
+node_js:
+  - "node" #Use latest version of nodejs
+sudo: required
+services:
+    - docker
+branches:
+  only: # Auto-deploy for branch master only
+    - master
+before_script: .travis/before_script.sh # Prepare the environment before running test and build.
+script:
+  - node set-env.js
+  - chmod +x set_host_env.sh
+  - docker-compose --verbose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+after_success:
+ - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./.travis/after_success.sh; fi #Deploy after test and build success

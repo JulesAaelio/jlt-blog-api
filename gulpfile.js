@@ -7,14 +7,5 @@ gulp.task('serve',() => {
         script: './src/index.js',
         // this listens to changes in any of these files/routes and restarts the application
         watch: ["src/*.js", 'src/**/*.js'],
-        env: {
-            "COOKIE_SECRET": "1245",
-            "DATABASE": "nodetest",
-            "DB_USER": "datauser",
-            "DB_PASSWORD": "toto",
-            "DB_HOST": "localhost",
-            "DB_DIALECT": "mysql",
-            "SRV_PORT": 3500
-        },
     })
 });
