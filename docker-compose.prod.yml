@@ -6,7 +6,7 @@ services:
     volumes:
       - ~/jlt-blog-api-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: "${ROOT_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
       MYSQL_USER: "${DB_USER}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
       MYSQL_DATABASE: "${DATABASE}"
