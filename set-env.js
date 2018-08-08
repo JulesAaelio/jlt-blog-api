@@ -8,6 +8,10 @@ const app_env = {
     DB_DIALECT: process.env.DB_DIALECT,
     SRV_PORT: process.env.SRV_PORT,
     OAUTH_SERVER: process.env.OAUTH_SERVER,
+    MYSQL_ROOT_PASSWORD: process.env.ROOT_PASSWORD,
+    MYSQL_USER: process.env.DB_USER,
+    MYSQL_PASSWORD: process.env.DB_PASSWORD,
+    MYSQL_DATABASE: process.env.DATABASE,
 };
 
 // const toWrite = 'export const environment = ' + JSON.stringify(app_env, null, '  ').replace(/\"([^(\")"]+)\":/g, '$1:') + ';';
@@ -15,20 +19,6 @@ const app_env = {
 let toWrite = stringify(app_env);
 
 writeFile('.env', toWrite, (err => {
-    if (err) {
-        console.log(err);
-    }
-}));
-
-
-const host_env = {
-    MYSQL_ROOT_PASSWORD: process.env.ROOT_PASSWORD,
-    MYSQL_USER: process.env.DB_USER,
-    MYSQL_PASSWORD: process.env.DB_PASSWORD,
-    MYSQL_DATABASE: process.env.DATABASE,
-};
-toWrite = stringify(host_env, true);
-writeFile('set_host_env.sh', toWrite, (err => {
     if (err) {
         console.log(err);
     }
