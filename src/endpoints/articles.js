@@ -4,7 +4,9 @@ module.exports = (db) => {
   const router = express.Router();
 
   router.get('/',(req,res) => {
-     db.Article.findAll().then(articles => {
+      db.Article.findAll({
+          order: [['updatedAt', 'ASC']]
+      }).then(articles => {
          res.send(articles);
      })
   });
