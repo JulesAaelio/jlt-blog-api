@@ -5,4 +5,5 @@ COPY ./ /data
 WORKDIR /data
 
 EXPOSE 3500
+npm instal && if [ $ENV = "dev"]
 CMD npm install && npm test

@@ -12,12 +12,19 @@ services:
       - db
     environment:
       VIRTUAL_HOST: api.blog.perso.local
+      ENV: ${ENV}
+      SRV_PORT: ${SRV_PORT}
+      OAUTH_SERVER: {$OAUTH_SERVER}
   db:
     image: mysql:5.7
     ports:
       - 3307:3306
+    volumes:
+      - jlt-blog-api-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: datauser
-      MYSQL_PASSWORD: toto
-      MYSQL_DATABASE: juleslaurentblogapi
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE}
+volumes:
+  jlt-blog-api-data: {}
