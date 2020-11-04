@@ -15,4 +15,5 @@ app.use('/user',
     require('./utils/auth-guard'),
     require('./endpoints/user')());
 
+console.log(process.env.SRV_PORT);
 app.listen(process.env.SRV_PORT);
