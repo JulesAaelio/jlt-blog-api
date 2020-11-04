@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "gulp serve"
+    "test": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
