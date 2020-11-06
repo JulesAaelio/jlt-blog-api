@@ -1,5 +1,4 @@
-import  {Sequelize, Model, DataTypes } from 'sequelize';
-const requireModels = require('sequelize-require-models');
+import  {Sequelize } from 'sequelize';
 
 export class Database {
     private static _database:Sequelize;
