@@ -1,11 +1,11 @@
 import {Endpoint} from "../utils/Endpoint";
 import {Router} from 'express'
 import {Article} from "../models/Article";
+import {Database} from "../config/database";
 
 export default class ArticlesEndpoint extends Endpoint {
     static load(extras: any) {
-        const db = extras.db;
-        if(!!db) {
+            const db = Database.getInstance();
             const router:Router = Router();
 
             router.get('/',(req,res) => {
@@ -27,5 +27,4 @@ export default class ArticlesEndpoint extends Endpoint {
             });
             return router;
         }
-    }
 }

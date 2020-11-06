@@ -2,19 +2,18 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import {app} from './config/express';
-import {type} from "os";
-import {db} from './config/sequelize'
+import Database from "./config/database";
+import {initAll} from  "./models/models"
 import ArticleEndpoint from './endpoints/ArticlesEndpoint'
 import {RequestHandler} from 'express';
 
-// const app = require('./config/express');
-// const db = require('./config/sequelize');
-// const passport = require('./config/passport')(db.User);
 console.log("App started at  " , new Date().toLocaleString());
-//
 
+(async () => {
+    await Database.getInstance();
+    await initAll();
 
-app.use('/articles', ArticleEndpoint.load({db}) as RequestHandler)
+    app.use('/articles', ArticleEndpoint.load({}) as RequestHandler)
 // app.use('/articles',
 //     passport.authenticate('bearer', {session: false}),
 //     require('./utils/admin-guard'),
@@ -24,5 +23,7 @@ app.use('/articles', ArticleEndpoint.load({db}) as RequestHandler)
 //     require('./utils/auth-guard'),
 //     require('./endpoints/user')());
 //
-console.log(typeof app);
-app.listen(process.env.SRV_PORT);
+    app.listen(process.env.SRV_PORT);
+})();
+
+
