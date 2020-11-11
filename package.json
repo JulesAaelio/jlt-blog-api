@@ -4,7 +4,8 @@
   "description": "REST Api for personal/internship blog",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc",
     "test": "nodemon src/index.ts"
   },
   "repository": {

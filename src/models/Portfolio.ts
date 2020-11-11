@@ -1,6 +1,7 @@
 import  {Model, DataTypes } from 'sequelize';
 import {Database} from '../config/database'
 import {Realisation} from "./Realisation";
+import {Resume} from "./Resume";
 
 export class Portfolio extends Model {
     static async initialize() {
@@ -18,7 +19,7 @@ export class Portfolio extends Model {
     }
 
    static async initRelations() {
-       Portfolio.belongsToMany(Portfolio, {through: 'resume_portfolio'});
+       Portfolio.belongsToMany(Resume, {through: 'resume_portfolio'});
        Portfolio.belongsToMany(Realisation, {through: 'realisation_portfolio'});
    }
 }
