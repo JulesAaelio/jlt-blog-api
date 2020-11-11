@@ -25,7 +25,7 @@ export class Resume extends Model {
 
    static async initRelations() {
        Resume.belongsToMany(Education, {through: 'resume_education'});
-       Resume.belongsToMany(Person, {through: 'resume_person'});
+       Resume.belongsTo(Person);
        Resume.belongsToMany(Experience, {through: 'resume_experience'});
        Resume.belongsToMany(Skill, {through: 'resume_skill'});
        Resume.belongsToMany(Portfolio, {through: 'resume_portfolio'});

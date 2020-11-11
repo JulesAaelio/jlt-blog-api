@@ -24,7 +24,7 @@ export class Person extends Model {
     }
 
     static async initRelations() {
-        Person.belongsToMany(Resume, {through: 'resume_person'});
+        Person.hasMany(Resume);
     }
 
 }
