@@ -12,7 +12,11 @@ export class Portfolio extends Model {
             description: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'portfolio'
+            tableName: 'portfolio',
+            name: {
+                singular: 'portfolio',
+                plural: 'portfolios'
+            }
         });
 
         console.log('Initialized Portfolio');

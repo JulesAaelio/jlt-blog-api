@@ -18,7 +18,11 @@ export class Experience extends Model {
             image: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'experience'
+            tableName: 'experience',
+            name: {
+                singular: 'experience',
+                plural: 'experiences'
+            }
         });
         console.log('Initialized article');
     }

@@ -13,7 +13,11 @@ export class SkillCategory extends Model {
             description: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'skill_category'
+            tableName: 'skill_category',
+            name: {
+                singular: 'skill_category',
+                plural: 'skill_categories'
+            }
         });
 
         console.log('Initialized SkillCategory');

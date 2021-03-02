@@ -18,7 +18,11 @@ export class Person extends Model {
             city: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'person'
+            tableName: 'person',
+            name: {
+                singular: 'person',
+                plural: 'persons'
+            }
         });
         console.log('Initialized Person');
     }

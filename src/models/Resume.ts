@@ -17,7 +17,11 @@ export class Resume extends Model {
             download: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'resume'
+            tableName: 'resume',
+            name: {
+                singular: 'resume',
+                plural: 'resumes'
+            }
         });
 
         console.log('Initialized Resume');

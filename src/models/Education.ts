@@ -18,7 +18,11 @@ export class Education extends Model {
             image: {type: DataTypes.STRING},
         }, {
             sequelize,
-            tableName: 'education'
+            tableName: 'education',
+            name: {
+                singular: 'education',
+                plural: 'educations'
+            }
         });
         console.log('Initialized Education');
     }
