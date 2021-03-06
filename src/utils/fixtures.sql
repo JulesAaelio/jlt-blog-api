@@ -6,24 +6,24 @@ VALUES (1,'jules.laurent@outlook.com','+33625309652','https://placehold.it/500x5
 
 
 #Resume
-REPLACE INTO resume(name, title, headline, download, createdAt, updatedAt, PersonId)
-VALUES ('RESUME 1','TITLE OF RESUME 1','HEADLINE OF RESUME 1','https://placehold.it/500x500',now(),now(),1);
+REPLACE INTO resume(id,name, title, headline, download, createdAt, updatedAt, PersonId)
+VALUES (1,'RESUME 1','TITLE OF RESUME 1','HEADLINE OF RESUME 1','https://placehold.it/500x500',now(),now(),1);
 
 #Experience
 REPLACE INTO experience(id, begin_date, end_date, job_label, company, details, link, image, createdAt, updatedAt)
-VALUES (1,2020-01-01,2020-07-01,'Développeur informatique','La petite ESN', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim.',
+VALUES (1,'2020-01-01','2020-07-01','Développeur informatique','La petite ESN', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim.',
        'https://google.fr','http://placehold.it/500x500',now(),now()),
-       (2,2020-01-01,2020-01-31,'Développeur informatique','La grosse ESN', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim.',
+       (2,'2020-01-01','2020-01-31','Développeur informatique','La grosse ESN', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim.',
         'https://google.fr','http://placehold.it/500x500',now(),now());
 
 REPLACE INTO resume_experience(createdAt, updatedAt, ExperienceId, ResumeId) VALUES
 (now(),now(), 1,1),(now(),now(),2,1);
 
 #Education
-REPLACE INTO education (begin_date, end_date, degree, school, place, details, result, link, image, createdAt, updatedAt)
-VALUES (1,2017,'DIPLOME HYPER COOOL MAIS LONG','Lycée tointoin','Lyon','Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim',
+REPLACE INTO education (id,begin_date, end_date, degree, school, place, details, result, link, image, createdAt, updatedAt)
+VALUES (1,'2015-01-01','2017-01-01','DIPLOME HYPER COOOL MAIS LONG','Lycée tointoin','Lyon','Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim',
         'OBTENU','https://www.ynov.com','https://placehold.it/500x500',now(),now()),
-       (2,2021,'DIPLOME HYPER COOOL MAIS LONG','Lyon Ynov Campus','Lyon','Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim',
+       (2,'2016-01-01','2021-01-01','DIPLOME HYPER COOOL MAIS LONG','Lyon Ynov Campus','Lyon','Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim',
         'ADMIS MENTION TRES BIEN','https://www.ynov.com','https://placehold.it/500x500',now(),now());
 
 REPLACE INTO resume_education(createdAt, updatedAt, EducationId, ResumeId) VALUES

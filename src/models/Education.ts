@@ -7,8 +7,8 @@ export class Education extends Model {
         const sequelize = await Database.getInstance();
         console.log('Initializing Education');
         Education.init({
-            begin_date: {type: DataTypes.STRING},
-            end_date: {type: DataTypes.STRING},
+            begin_date: {type: DataTypes.DATEONLY},
+            end_date: {type: DataTypes.DATEONLY},
             degree: {type: DataTypes.STRING},
             school: {type: DataTypes.STRING},
             place: {type: DataTypes.STRING},

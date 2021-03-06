@@ -9,8 +9,8 @@ export class Experience extends Model {
         const sequelize = await Database.getInstance();
         console.log('Initializing Article');
         Experience.init({
-            begin_date: {type: DataTypes.STRING},
-            end_date: {type: DataTypes.STRING},
+            begin_date: {type: DataTypes.DATEONLY},
+            end_date: {type: DataTypes.DATEONLY},
             job_label: {type: DataTypes.STRING},
             company: {type: DataTypes.STRING},
             details: {type: DataTypes.STRING},
