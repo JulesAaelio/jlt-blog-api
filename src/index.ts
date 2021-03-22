@@ -7,6 +7,7 @@ import {initAll} from  "./models/models"
 import ArticleEndpoint from './endpoints/ArticlesEndpoint'
 import {RequestHandler} from 'express';
 import ResumeEndpoint from "./endpoints/ResumeEndpoint";
+import SkillEndpoint from "./endpoints/SkillEndpoint";
 
 console.log("App started at  " , new Date().toLocaleString());
 
@@ -16,6 +17,7 @@ console.log("App started at  " , new Date().toLocaleString());
 
     app.use('/articles', ArticleEndpoint.load({}) as RequestHandler);
     app.use('/resume', ResumeEndpoint.load({}) as RequestHandler);
+    app.use('/skill', SkillEndpoint.load({}) as RequestHandler);
 // app.use('/articles',
 //     passport.authenticate('bearer', {session: false}),
 //     require('./utils/admin-guard'),

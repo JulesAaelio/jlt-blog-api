@@ -16,6 +16,10 @@ export class Realisation extends Model {
             link: {type: DataTypes.STRING},
         }, {
             sequelize,
+            name: {
+                singular: 'realisation',
+                plural: 'realisations'
+            },
             tableName: 'realisation'
         });
         console.log('Initialized Realisation');

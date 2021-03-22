@@ -3,6 +3,8 @@ import {Database} from '../config/database'
 import {Realisation} from "./Realisation";
 import {Resume} from "./Resume";
 import {SkillCategory} from "./SkillCategory";
+import {Experience} from "./Experience";
+import {Education} from "./Education";
 
 export class Skill extends Model {
     static async initialize() {
@@ -26,6 +28,7 @@ export class Skill extends Model {
    static async initRelations() {
        Skill.belongsToMany(Resume, {through: 'resume_skill'});
        Skill.belongsToMany(Realisation, {through: 'realisation_skill'});
+       Skill.belongsToMany(Experience, {through: 'experience_skill'});
        Skill.belongsTo(SkillCategory);
    }
 }
