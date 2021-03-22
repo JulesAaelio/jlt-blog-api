@@ -16,6 +16,8 @@ export class Person extends Model {
             twitter: {type: DataTypes.STRING},
             bio: {type: DataTypes.STRING},
             city: {type: DataTypes.STRING},
+            firstname: {type: DataTypes.STRING},
+            lastname: {type: DataTypes.STRING}
         }, {
             sequelize,
             tableName: 'person',

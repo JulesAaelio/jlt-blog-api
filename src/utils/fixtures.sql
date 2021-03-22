@@ -1,8 +1,8 @@
 # Person
-REPLACE INTO person (id,mail, phone, picture, linkedin, website, github, twitter, bio, city, createdAt, updatedAt)
+REPLACE INTO person (id,mail, phone, picture, linkedin, website, github, twitter, bio, city, firstname, lastname, createdAt, updatedAt)
 VALUES (1,'jules.laurent@outlook.com','+33625309652','https://placehold.it/500x500','jules.laurent','https://www.juleslaurent.fr','julesaaelio','julesaaelio',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem arcu, accumsan ut mi a, porttitor scelerisque ante. Vestibulum feugiat massa id diam sagittis dignissim.',
-        'LYON',now(),now());
+        'LYON','jules','laurent',now(),now());
 
 
 #Resume
