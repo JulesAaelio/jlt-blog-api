@@ -10,10 +10,8 @@ services:
       - db
     depends_on:
       - db
-    environment:
-      VIRTUAL_HOST: api.blog.perso.local
     working_dir: /data
-    command: sh docker-command.sh
+    command:  sh -c 'npm install --only=production && node index.js'
   db:
     image: mysql:5.7
     ports:
